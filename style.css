@@ -1,0 +1,76 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* 最底層 */
+}
+
+.menu {
+  position: absolute;
+  top: -100px; /* 初始隱藏在畫面外 */
+  right: 50px;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.2); /* 背景顏色透明度設置為 0.2 */
+  border-radius: 5px;
+  z-index: 3; /* 最上層 */
+  transition: top 0.5s ease; /* 添加滑動效果 */
+}
+
+.menu li {
+  margin-left: 30px; /* 修改間距為 20px */
+  color: #6c584c;
+  font-size: 16px;
+  font-family: 'Microsoft JhengHei', Arial, sans-serif;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu .dropdown:hover .submenu {
+  display: block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  border-radius: 5px;
+  z-index: 4;
+  flex-direction: column; /* 子選單項目垂直排列 */
+}
+
+.submenu li {
+  margin: 5px 0; /* 每個子選項之間的間距 */
+}
+
+.submenu li a {
+  text-decoration: none;
+  color: #6c584c;
+}
+
+.iframe-display {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background-color: rgba(255, 255, 255, 0.2); /* 背景透明度設置為 0.2 */
+  border: none;
+  z-index: 2; /* 第二層 */
+  display: none; /* 預設隱藏 iframe */
+}

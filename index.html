@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sketch</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <!-- 選單 -->
+    <ul class="menu">
+      <li onclick="hideIframe()">首頁</li>
+      <li>自我介紹</li>
+      <li class="dropdown">
+        作品集
+        <ul class="submenu">
+          <li><a href="https://hackmd.io/@50908106/By-3L8HqJe" target="iframe-display" onclick="showIframe()">第一周</a></li>
+          <li><a href="https://hackmd.io/@50908106/Sy9EoTDj1e" target="iframe-display" onclick="showIframe()">第二周</a></li>
+          <li><a href="https://hackmd.io/@50908106/SkwQVbb2ye" target="iframe-display" onclick="showIframe()">第三周</a></li>
+          <li><a href="https://hackmd.io/@50908106/HkTzqcQ6Je" target="iframe-display" onclick="showIframe()">第四周</a></li>
+        </ul>
+      </li>
+      <li>測驗卷</li>
+      <li>教學影片</li>
+    </ul>
+
+    <!-- iframe 顯示區域 -->
+    <iframe name="iframe-display" class="iframe-display"></iframe>
+
+    <!-- sketch.js 動畫 -->
+    <script src="sketch.js"></script>
+    <script>
+      function showIframe() {
+        document.querySelector('.iframe-display').style.display = 'block';
+      }
+
+      function hideIframe() {
+        document.querySelector('.iframe-display').style.display = 'none';
+      }
+
+      // 控制選單顯示與隱藏
+      document.addEventListener('mousemove', (event) => {
+        const menu = document.querySelector('.menu');
+        if (event.clientY < 250) {
+          menu.style.top = '10px'; // 顯示選單
+        } else {
+          menu.style.top = '-100px'; // 隱藏選單
+        }
+      });
+    </script>
+  </body>
+</html>
